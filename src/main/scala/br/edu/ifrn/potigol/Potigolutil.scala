@@ -112,8 +112,8 @@ object Potigolutil {
     def cauda: Lista[T] = Lista(_lista.tail)
     def ordene(implicit ord: Ordering[T]): Lista[T] = Lista(_lista.sorted)
     def inverta: Lista[T] = Lista(_lista.reverse)
-    @deprecated("Use 'selecione'", since094) def filtre(p: T => Lógico): Lista[T] = Lista(_lista.filter(p))
-    def selecione: (T => Lógico) => Lista[T] = filtre
+    @deprecated("Use 'selecione'", since094) def filtre: (T => Lógico) => Lista[T] = selecione
+    def selecione(p: T => Lógico): Lista[T] = Lista(_lista.filter(p))
     def mapeie[B](f: T => B): Lista[B] = Lista(_lista.map(f))
     def pegue_enquanto(p: T => Lógico): Lista[T] = Lista(_lista.takeWhile(p))
     @deprecated("Use 'descarte_enquanto'", since094) def passe_enquanto(p: T => Lógico): Lista[T] = Lista(_lista.dropWhile(p))
@@ -289,8 +289,8 @@ object Potigolutil {
     }
   }
 
-  private[this] def corSim = print("\033[32m")
-  private[this] def corNao = print("\033[37m")
+  private[this] def corSim = print("\u001b[32m")
+  private[this] def corNao = print("\u001b[37m")
   def leia(): Texto = {
     if ($cor) corSim
     val s = StdIn.readLine()
