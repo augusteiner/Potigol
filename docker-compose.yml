@@ -1,0 +1,20 @@
+
+version: '3'
+
+services:
+
+  latest:
+    image: potigol:latest
+    build: .
+
+  # openjdk-8:
+  #   build: .
+  #   image: potigol:openjdk-8
+
+  # openjdk-7:
+  #   build: .
+  #   image: potigol:openjdk-7
+
+  # openjdk-6:
+  #   build: .
+  #   image: potigol:openjdk-6
